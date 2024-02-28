@@ -7,6 +7,30 @@
     <title>Document</title>
   </head>
   <body>
-    <script src="main.js"></script>
+  
+  <button onclick="authenticate().then(loadClient)">로그인</button>
+
+  <div>
+    <div>
+      <label>가수: </label>
+      <input type="text" id="singer">
+    </div>
+    <div>
+      <label>곡명: </label>
+      <input type="text" id="song-title">
+    </div>
+  </div>
+
+  <button onclick="execute()">조회하여 첫곡 실행하기</button>
+  <!-- <button id="sing-youtube">첫곡 실행</button> -->
+  
+  <div id="first-song">
+    <!-- <iframe id="ytplayer" type="text/html" width="720" height="405"
+    src="https://www.youtube.com/embed/M45chOHpnDY"
+    frameborder="0" allowfullscreen> -->
+  </div>
+
+  <script src="https://apis.google.com/js/api.js" async defer></script>
+    <script src="youtubeapi.js"></script>
   </body>
 </html>
