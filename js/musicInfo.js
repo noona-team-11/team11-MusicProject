@@ -6,9 +6,15 @@ let artist = '';
 let songName = '';
 let songImage = '';
 let keyword = '';
-keyword = 'ariana';
+// keyword = '아이유';
 // keyword = document.getElementById('search-data').value;
-console.log(keyword);
+// keyword = document.getElementById('test').value;
+
+const getAlbumByKeyword = () => {
+  keyword = document.getElementById('test').value;
+  console.log('keyword', keyword);
+};
+
 // Step 1: Access Token 받기
 
 const tokenResponse = await axios.post(
@@ -93,7 +99,3 @@ const render = () => {
 };
 
 render();
-
-// -----------------------------------------------------
-
-// --------------------------------------------------------------
