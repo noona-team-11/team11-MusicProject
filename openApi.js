@@ -1,5 +1,6 @@
 let retryCount = 0
 let $taskInput = document.querySelector('.search-data');
+let songList = ""
 
 $taskInput.addEventListener('keypress', (event) => {
 	if(event.key == 'Enter'){
@@ -21,10 +22,10 @@ const addTask = async () => {
         const message = $searchData.value;
         try {
             const response = await fetch(`https://port-0-openai-node-dc9c2nlt8u9zyk.sel5.cloudtype.app/${message}`);
-            const data = await response.json();
-            console.log(data);
+            songList = await response.json();
+            console.log(songList);
 
-            const hasUndefinedData = data.some(item => item.title === undefined || item.singer === undefined);
+            const hasUndefinedData = songList.some(item => item.title === undefined || item.singer === undefined);
 
             if (hasUndefinedData && retryCount < 3) {
                 console.log('Data contains undefined values. Retrying fetch...');
@@ -34,8 +35,8 @@ const addTask = async () => {
                 console.error('Maximum retry limit reached. Failed to fetch data with complete values.');
             } else {    
                 for (let i = 0; i < 10; i++) {
-                    console.log(`title[${i}]`, data[i].title);
-                    console.log(`singer[${i}]`, data[i].singer);
+                    console.log(`title[${i}]`, songList[i].title);
+                    console.log(`singer[${i}]`, songList[i].singer);
                 }
             }
             } catch (error) {
