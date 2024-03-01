@@ -43,23 +43,25 @@ const addTask = () => {
 }
 
 // video player
-// const videoPlay = document.querySelectorAll('.play_btn').forEach(button => {
-// 	button.addEventListener('click', () => {
-// 		const parent = document.querySelector('.video_img');
-// 		const sibling  = document.querySelector('.video-play');
+const videoPlay = document.querySelectorAll('.play_btn').forEach(button => {
+	button.addEventListener('click', () => {
+
+		execute(); // 동영상 버튼 클릭하면 유튜브 동영상 자동 실행
+
+		// const parent = document.querySelector('.video_img');
+		// const sibling  = document.querySelector('.video-play');
 		
-// 		parent.style.display = 'none';
-// 		sibling.classList.add('active');
-// 	});
-// });
+		// parent.style.display = 'none';
+		// sibling.classList.add('active');
+	});
+});
 
 //slide item click
 const slideItemClick = document.querySelectorAll('.slide-item').forEach((item, index) => {
 
 	item.addEventListener('click', function() {
 		    
-		cancel();
-		console.log(videoArea);
+		cancel(); // 슬라이드 클릭하면 동영상 중지하고 원래 코드로 복귀
 			
 			const slideImgSrc = this.querySelector('.slide-img').getAttribute('src');
 			const videoImg = document.querySelector('.video_img');
