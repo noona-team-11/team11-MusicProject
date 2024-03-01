@@ -6,7 +6,7 @@ let artist = '';
 let songName = '';
 let songImage = '';
 let keyword = '';
-// keyword = '아이유';
+keyword = '아이유';
 // keyword = document.getElementById('search-data').value;
 // keyword = document.getElementById('test').value;
 
@@ -78,24 +78,19 @@ const render = () => {
   const musicHTML = albumList
     .map(
       (albums) => `
-        <div class="row albums">
-          <div class="col-lg-4">
-            <img
-              class="album-image"
-              src=${albums.images[0].url}
-              alt="앨범 이미지"
-            />
-          </div>
-          <div class="col-lg-8">
-            <h1>${albums.artists[0].name}</h1>
-            <h2 class="album-name">${albums.name}</h2>
-          </div>
-        </div>
+
+      <div class="swiper-slide slide-list" data-swiper-autoplay="5000" data-video-idx="1" data-video-type="Youtube">
+                <a href="#none" class="slide-item">
+                  <img class="slide-img" alt="" src=${albums.images[0].url}>
+                </a>
+                <h1>${albums.artists[0].name}</h1>
+            <h2 class="album-name">${albums.name}</h2>			
+              </div>
         `
     )
     .join('');
 
-  document.getElementById('music-info').innerHTML = musicHTML;
+  document.querySelector('.swiper-wrapper').innerHTML = musicHTML;
 };
 
 render();
