@@ -20,27 +20,27 @@ const $searchInfo = document.querySelector('.search-info');
 const $searchWrap = document.querySelector('.search-wrap');
 const $searchData = document.querySelector('.search-data');
 
-let $taskInput = document.querySelector('.search-data');
+// let $taskInput = document.querySelector('.search-data');
 
 
-$taskInput.addEventListener('keypress', (event) => {
-	if(event.key == 'Enter'){
-		event.preventDefault(); // 폼 제출 방지
-		addTask();//enter 키를 눌렸을 때 실행할 동작
-	}
-})
+// $taskInput.addEventListener('keypress', (event) => {
+// 	if(event.key == 'Enter'){
+// 		event.preventDefault(); // 폼 제출 방지
+// 		addTask();//enter 키를 눌렸을 때 실행할 동작
+// 	}
+// })
 
-const addTask = () => {
-	if($searchData.value === '') {
-		alert('음악을 입력해 주세요.')
-		return;
-	} else {
-		$searchResult.classList.add('on');
-		$wrap.style.overflowY = 'auto';
-		$searchInfo.style.display = ('none');
-		$searchWrap.classList.add('search-value');
-	}
-}
+// const addTask = () => {
+// 	if($searchData.value === '') {
+// 		alert('음악을 입력해 주세요.')
+// 		return;
+// 	} else {
+// 		$searchResult.classList.add('on');
+// 		$wrap.style.overflowY = 'auto';
+// 		$searchInfo.style.display = ('none');
+// 		$searchWrap.classList.add('search-value');
+// 	}
+// }
 
 // video player
 const videoPlay = document.querySelectorAll('.play_btn').forEach(button => {
