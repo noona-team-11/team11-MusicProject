@@ -42,20 +42,25 @@ const addTask = () => {
 	}
 }
 
-//video player
-const videoPlay = document.querySelectorAll('.play_btn').forEach(button => {
-	button.addEventListener('click', () => {
-		const parent = document.querySelector('.video_img');
-		const sibling  = document.querySelector('.video-play');
+// video player
+// const videoPlay = document.querySelectorAll('.play_btn').forEach(button => {
+// 	button.addEventListener('click', () => {
+// 		const parent = document.querySelector('.video_img');
+// 		const sibling  = document.querySelector('.video-play');
 		
-		parent.style.display = 'none';
-		sibling.classList.add('active');
-	});
-});
+// 		parent.style.display = 'none';
+// 		sibling.classList.add('active');
+// 	});
+// });
 
 //slide item click
 const slideItemClick = document.querySelectorAll('.slide-item').forEach((item, index) => {
+
 	item.addEventListener('click', function() {
+		    
+		cancel();
+		console.log(videoArea);
+			
 			const slideImgSrc = this.querySelector('.slide-img').getAttribute('src');
 			const videoImg = document.querySelector('.video_img');
 			videoImg.style.backgroundImage = `url(${slideImgSrc})`;
@@ -116,4 +121,3 @@ function updateNavButtons(swiper) {
 		$nextButton.style.display = 'block';
 	}
 }
-
