@@ -1,5 +1,4 @@
 //let singer = "아이유" //document.getElementById("singer");
-//let songTitle = "안치환 사랑하게 되면" //document.getElementById("song-title");
 let indexNum = 0;
 
 
