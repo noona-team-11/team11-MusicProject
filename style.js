@@ -20,42 +20,49 @@ const $searchInfo = document.querySelector('.search-info');
 const $searchWrap = document.querySelector('.search-wrap');
 const $searchData = document.querySelector('.search-data');
 
-let $taskInput = document.querySelector('.search-data');
+// let $taskInput = document.querySelector('.search-data');
 
 
-$taskInput.addEventListener('keypress', (event) => {
-	if(event.key == 'Enter'){
-		event.preventDefault(); // 폼 제출 방지
-		addTask();//enter 키를 눌렸을 때 실행할 동작
-	}
-})
+// $taskInput.addEventListener('keypress', (event) => {
+// 	if(event.key == 'Enter'){
+// 		event.preventDefault(); // 폼 제출 방지
+// 		addTask();//enter 키를 눌렸을 때 실행할 동작
+// 	}
+// })
 
-const addTask = () => {
-	if($searchData.value === '') {
-		alert('음악을 입력해 주세요.')
-		return;
-	} else {
-		$searchResult.classList.add('on');
-		$wrap.style.overflowY = 'auto';
-		$searchInfo.style.display = ('none');
-		$searchWrap.classList.add('search-value');
-	}
-}
+// const addTask = () => {
+// 	if($searchData.value === '') {
+// 		alert('음악을 입력해 주세요.')
+// 		return;
+// 	} else {
+// 		$searchResult.classList.add('on');
+// 		$wrap.style.overflowY = 'auto';
+// 		$searchInfo.style.display = ('none');
+// 		$searchWrap.classList.add('search-value');
+// 	}
+// }
 
-//video player
+// video player
 const videoPlay = document.querySelectorAll('.play_btn').forEach(button => {
 	button.addEventListener('click', () => {
-		const parent = document.querySelector('.video_img');
-		const sibling  = document.querySelector('.video-play');
+
+		execute(); // 동영상 버튼 클릭하면 유튜브 동영상 자동 실행
+
+		// const parent = document.querySelector('.video_img');
+		// const sibling  = document.querySelector('.video-play');
 		
-		parent.style.display = 'none';
-		sibling.classList.add('active');
+		// parent.style.display = 'none';
+		// sibling.classList.add('active');
 	});
 });
 
 //slide item click
 const slideItemClick = document.querySelectorAll('.slide-item').forEach((item, index) => {
+
 	item.addEventListener('click', function() {
+		    
+		cancel(); // 슬라이드 클릭하면 동영상 중지하고 원래 코드로 복귀
+			
 			const slideImgSrc = this.querySelector('.slide-img').getAttribute('src');
 			const videoImg = document.querySelector('.video_img');
 			videoImg.style.backgroundImage = `url(${slideImgSrc})`;
@@ -116,4 +123,3 @@ function updateNavButtons(swiper) {
 		$nextButton.style.display = 'block';
 	}
 }
-
