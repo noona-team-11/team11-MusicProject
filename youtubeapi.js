@@ -57,5 +57,5 @@ function execute() {
                 </div>
               </div>`
 
-              videoArea.innerHTML = resultHTML;
+              return videoArea.innerHTML = resultHTML;
   }
