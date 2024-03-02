@@ -34,7 +34,7 @@ btn.addEventListener('click', async function () {
 
     const render = () => {
       songName = spotify_search_one.data.tracks.items[0].name;
-      artist = spotify_search_one.data.tracks.items[0].artists[0].name;
+      // artist = spotify_search_one.data.tracks.items[0].artists[0].name;
       songImage = spotify_search_one.data.tracks.items[0].album.images[0].url;
       albumList = spotify_search_one.data.tracks.items[0];
       console.log(spotify_search_one);
@@ -74,6 +74,3 @@ const accessToken = tokenResponse.data.access_token;
 const startSpotify = async () => {};
 
 console.log('필요한 데이터 : ', spotify_search_one);
-console.log('필요한 데이터 : ', spotify_search_one.data.tracks.items[0].name);
-console.log('필요한 데이터 : ', spotify_search_one.data.tracks.items[0].artists[0].name);
-console.log('필요한 데이터 : ', spotify_search_one.data.tracks.items[0].album.images[0].url);
