@@ -6,7 +6,54 @@ let artist = '';
 let songName = '';
 let songImage = '';
 let keyword = '';
-keyword = '이소라 청혼';
+let spotify_search_one = '';
+
+const btn = document.querySelector('.title-small');
+btn.addEventListener('click', async function () {
+  let i = 0;
+  for (i = 0; i < songList.length; i++) {
+    keyword = songList[i].title + ' ' + songList[i].singer;
+    console.log('재희의 테스트 : ', songList);
+    console.log('재희의 테스트 : ', keyword);
+    console.log(keyword);
+
+    // Step 2: 키워드로 검색하기
+    spotify_search_one = await axios.get('https://api.spotify.com/v1/search', {
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+      },
+
+      params: {
+        q: keyword,
+
+        type: 'track',
+
+        limit: 1,
+      },
+    });
+
+    const render = () => {
+      songName = spotify_search_one.data.tracks.items[0].name;
+      artist = spotify_search_one.data.tracks.items[0].artists[0].name;
+      songImage = spotify_search_one.data.tracks.items[0].album.images[0].url;
+      albumList = spotify_search_one.data.tracks.items[0];
+      console.log(spotify_search_one);
+
+      const musicHTML = `
+        <div class="swiper-slide slide-list" data-swiper-autoplay="5000" data-video-idx="1" data-video-type="Youtube">
+                  <a href="#none" class="slide-item">
+                    <img class="slide-img" alt="앨범이미지" src=${songImage}>
+                  </a>
+                </div>
+          `;
+
+      document.querySelector('.swiper-wrapper').innerHTML += musicHTML;
+    };
+
+    // startSpotify();
+    render();
+  }
+});
 
 // Step 1: Access Token 받기
 
@@ -24,55 +71,9 @@ const tokenResponse = await axios.post(
 
 const accessToken = tokenResponse.data.access_token;
 
-// Step 2: 키워드로 검색하기
-
-const spotify_search_one = await axios.get('https://api.spotify.com/v1/search', {
-  headers: {
-    Authorization: `Bearer ${accessToken}`,
-  },
-
-  params: {
-    q: keyword,
-
-    type: 'track',
-
-    limit: 10,
-  },
-});
+const startSpotify = async () => {};
 
 console.log('필요한 데이터 : ', spotify_search_one);
 console.log('필요한 데이터 : ', spotify_search_one.data.tracks.items[0].name);
 console.log('필요한 데이터 : ', spotify_search_one.data.tracks.items[0].artists[0].name);
 console.log('필요한 데이터 : ', spotify_search_one.data.tracks.items[0].album.images[0].url);
-
-// console.log(' 순수 바닐라 자스 : '.spotify_search_album_by_id);
-// console.log('하이');
-
-songName = spotify_search_one.data.tracks.items[0].name;
-artist = spotify_search_one.data.tracks.items[0].artists[0].name;
-songImage = spotify_search_one.data.tracks.items[0].album.images[0].url;
-albumList = spotify_search_one.data.tracks.items;
-
-/* 
-       <h1>${albums.artists[0].name}</h1>
-       <h2 class="album-name">${albums.name}</h2>	
-*/
-
-const render = () => {
-  const musicHTML = albumList
-    .map(
-      (tracks) => `
-
-      <div class="swiper-slide slide-list" data-swiper-autoplay="5000" data-video-idx="1" data-video-type="Youtube">
-                <a href="#none" class="slide-item">
-                  <img class="slide-img" alt="앨범이미지" src=${tracks.album.images[1].url}>
-                </a>		
-              </div>
-        `
-    )
-    .join('');
-
-  document.querySelector('.swiper-wrapper').innerHTML = musicHTML;
-};
-
-render();
