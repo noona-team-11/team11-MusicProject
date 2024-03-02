@@ -1,9 +1,10 @@
 // 검색 안내 타이틀
-const text = "어떤 음악을 찾고 있나요?";
-const speed = 100;
+let text = "어떤 음악을 찾고 있나요?";
+const speed = 150;
 let i = 0;
 
 const titleTyping = () => {
+
 	if(i < text.length)	{
 		document.querySelector('.search-txt').textContent	+= text.charAt(i);
 		i++;
@@ -18,50 +19,55 @@ const $searchResult = document.querySelector('.search-result');
 const $searchForm = document.querySelector('.searchForm');
 const $searchInfo = document.querySelector('.search-info');
 const $searchWrap = document.querySelector('.search-wrap');
-let $searchData = document.querySelector('.search-data'); //20240302 let 수정
-//let $taskInput = document.querySelector('.search-data'); 20240302 삭제
+const $searchData = document.querySelector('.search-data');
+
+// $taskInput.addEventListener('keypress', (event) => {
+// 	if(event.key == 'Enter'){
+// 		event.preventDefault(); // 폼 제출 방지
+// 		addTask();//enter 키를 눌렸을 때 실행할 동작
+// 	}
+// })
+
+// const addTask = () => {
+// 	if($searchData.value === '') {
+// 		alert('음악을 입력해 주세요.')
+// 		return;
+// 	} else {
+// 		$searchResult.classList.add('on');
+// 		$wrap.style.overflowY = 'auto';
+// 		$searchInfo.style.display = ('none');
+// 		$searchWrap.classList.add('search-value');
+// 	}
+// }
 
 
-//20240302 $searchData 수정
-$searchData.addEventListener('keypress', (event) => {
-	if(event.key == 'Enter'){
-		event.preventDefault(); // 폼 제출 방지
-		addTask();//enter 키를 눌렸을 때 실행할 동작
-	}
-})
+// video player
+const videoPlay = document.querySelectorAll('.play_btn').forEach(button => {
+	button.addEventListener('click', () => {
 
-const addTask = () => {
-	if($searchData.value === '') {
-		alert('음악을 입력해 주세요.')
-		return;
-	} else {
-		$searchResult.classList.add('on');
-		$wrap.style.overflowY = 'auto';
-		$searchInfo.style.display = ('none');
-		$searchWrap.classList.add('search-value');
-	}
-}
+		execute(); // 동영상 버튼 클릭하면 유튜브 동영상 자동 실행
 
-//slide list click
-const slideListItems = document.querySelectorAll('.slide-item');
-slideListItems.forEach((item, index) => {
+		// const parent = document.querySelector('.video_img');
+		// const sibling  = document.querySelector('.video-play');
+		
+		// parent.style.display = 'none';
+		// sibling.classList.add('active');
+	});
+});
+
+//slide item click
+const slideItemClick = document.querySelectorAll('.slide-item').forEach((item, index) => {
+
 	item.addEventListener('click', function() {
-		//cancel();
 
-		const slideImgSrc = this.querySelector('.slide-img').getAttribute('src');
-		const videoImg = document.querySelector('.video_img');
-		videoImg.style.backgroundImage = `url(${slideImgSrc})`;
-
-		// 클릭한 슬라이드 아이템의 data-video-url 속성 값 가져오기
-		const videoUrl = this.parentElement.getAttribute('data-video-url');
-		// play_btn의 data-video-url 속성 값 설정
-		videoPlayBtn.forEach(btn => {
-			btn.setAttribute('data-video-url', videoUrl);
-		});
-
-		// video-play의 iframe에 해당 URL을 설정하여 재생
-		const videoIframe = document.querySelector('.video-play');
-		videoIframe.src = videoUrl;
+		indexNum = index;
+		console.log(index);
+		    
+		cancel(); // 슬라이드 클릭하면 동영상 중지하고 원래 코드로 복귀
+			
+			const slideImgSrc = this.querySelector('.slide-img').getAttribute('src');
+			const videoImg = document.querySelector('.video_img');
+			videoImg.style.backgroundImage = `url(${slideImgSrc})`;
 	});
 });
 
@@ -119,3 +125,27 @@ function updateNavButtons(swiper) {
 		$nextButton.style.display = 'block';
 	}
 }
+
+/* 20240302 EUnju 추가 */
+//slide list click
+// const slideListItems = document.querySelectorAll('.slide-item');
+// slideListItems.forEach((item, index) => {
+// 	item.addEventListener('click', function() {
+// 		//cancel();
+
+// 		const slideImgSrc = this.querySelector('.slide-img').getAttribute('src');
+// 		const videoImg = document.querySelector('.video_img');
+// 		videoImg.style.backgroundImage = `url(${slideImgSrc})`;
+
+// 		// 클릭한 슬라이드 아이템의 data-video-url 속성 값 가져오기
+// 		const videoUrl = this.parentElement.getAttribute('data-video-url');
+// 		// play_btn의 data-video-url 속성 값 설정
+// 		videoPlayBtn.forEach(btn => {
+// 			btn.setAttribute('data-video-url', videoUrl);
+// 		});
+
+// 		// video-play의 iframe에 해당 URL을 설정하여 재생
+// 		const videoIframe = document.querySelector('.video-play');
+// 		videoIframe.src = videoUrl;
+// 	});
+// });
