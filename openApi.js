@@ -1,4 +1,4 @@
-let retryCount = 0
+let retryCount = 0;
 let $taskInput = document.querySelector('.search-data');
 let songList = ""
 
@@ -10,14 +10,15 @@ $taskInput.addEventListener('keypress', (event) => {
 })
 
 const addTask = async () => {
+    i = 0;
+    text = "음악을 검색 중 입니다.....";
+    document.querySelector('.search-txt').textContent = ''
+    titleTyping();
+
 	if($searchData.value === '') {
 		alert('음악을 입력해 주세요.')
 		return;
 	} else {
-		$searchResult.classList.add('on');
-		$wrap.style.overflowY = 'auto';
-		$searchInfo.style.display = ('none');
-		$searchWrap.classList.add('search-value');
 
         const message = $searchData.value;
         try {
@@ -33,7 +34,12 @@ const addTask = async () => {
                 await addTask();  // 재귀적으로 addTask를 호출하여 재시도
             } else if (hasUndefinedData && retryCount >= 3) {
                 console.error('Maximum retry limit reached. Failed to fetch data with complete values.');
-            } else {    
+            } else {
+                $searchResult.classList.add('on');
+                $wrap.style.overflowY = 'auto';
+                $searchInfo.style.display = ('none');
+                $searchWrap.classList.add('search-value');
+
                 for (let i = 0; i < 10; i++) {
                     console.log(`title[${i}]`, songList[i].title);
                     console.log(`singer[${i}]`, songList[i].singer);
