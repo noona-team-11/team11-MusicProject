@@ -55,19 +55,45 @@ const videoPlay = document.querySelectorAll('.play_btn').forEach(button => {
 	});
 });
 
-//slide item click
-const slideItemClick = document.querySelectorAll('.slide-item').forEach((item, index) => {
+// //slide item click
+// const slideItemClick = document.querySelectorAll('.slide-item').forEach((item, index) => {
 
+// 	item.addEventListener('click', function() {
+
+// 		indexNum = index;
+// 		console.log(index);
+		    
+// 		cancel(); // 슬라이드 클릭하면 동영상 중지하고 원래 코드로 복귀
+			
+// 			const slideImgSrc = this.querySelector('.slide-img').getAttribute('src');
+// 			const videoImg = document.querySelector('.video_img');
+// 			videoImg.style.backgroundImage = `url(${slideImgSrc})`;
+// 	});
+// });
+
+const slideListItems = document.querySelectorAll('.slide-item');
+slideListItems.forEach((item, index) => {
 	item.addEventListener('click', function() {
 
 		indexNum = index;
 		console.log(index);
-		    
+
 		cancel(); // 슬라이드 클릭하면 동영상 중지하고 원래 코드로 복귀
-			
-			const slideImgSrc = this.querySelector('.slide-img').getAttribute('src');
-			const videoImg = document.querySelector('.video_img');
-			videoImg.style.backgroundImage = `url(${slideImgSrc})`;
+
+		const slideImgSrc = this.querySelector('.slide-img').getAttribute('src');
+		const videoImg = document.querySelector('.video_img');
+		videoImg.style.backgroundImage = `url(${slideImgSrc})`;
+
+		// 클릭한 슬라이드 아이템의 data-video-url 속성 값 가져오기
+		const videoUrl = this.parentElement.getAttribute('data-video-url');
+		// play_btn의 data-video-url 속성 값 설정
+		videoPlayBtn.forEach(btn => {
+			btn.setAttribute('data-video-url', videoUrl);
+		});
+
+		// video-play의 iframe에 해당 URL을 설정하여 재생
+		const videoIframe = document.querySelector('.video-play');
+		videoIframe.src = videoUrl;
 	});
 });
 
