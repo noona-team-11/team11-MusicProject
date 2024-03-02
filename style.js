@@ -60,15 +60,18 @@ const videoPlay = document.querySelectorAll('.play_btn').forEach(button => {
 //slide item click
 const slideItemClick = document.querySelectorAll('.slide-item').forEach((item, index) => {
 	item.addEventListener('click', function() {
-
+        
+		console.log(document.querySelectorAll('.slide-item'));
 		indexNum = index;
 		console.log("리스트클릭", index);
 		    
 		cancel(); // 슬라이드 클릭하면 동영상 중지하고 원래 코드로 복귀
-			
+
 			const slideImgSrc = this.querySelector('.slide-img').getAttribute('src');
 			const videoImg = document.querySelector('.video_img');
 			videoImg.style.backgroundImage = `url(${slideImgSrc})`;
+			
+
 	});
 });
 

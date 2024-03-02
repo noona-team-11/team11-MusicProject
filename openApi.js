@@ -41,6 +41,7 @@ const addTask = async () => {
                 }
                 await startSpotify();
                 render();
+                execute();
             }
             } catch (error) {
                 console.error('Error:', error);

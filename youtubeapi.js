@@ -12,9 +12,9 @@ let videoArea = document.getElementById("video-area");
 
 function execute() {
 
-  let songTitle = `${songList[indexNum].singer} ${songList[indexNum].title}`
+  let songTitle = `${songList[indexNum].singer.replace(/"/g,'')} ${songList[indexNum].title.replace(/"/g,'')}`
 
-  console.log(songTitle);
+  console.log("유튜브에 넘겨 주는 검색 조건: ",songTitle);
 
   const settings = {
     
@@ -28,10 +28,12 @@ function execute() {
         .then(function(response) {
                 // Handle the results here (response.result has the parsed body).
                 console.log("Response", response);
-                console.log("videoId", response.items[0].id.videoId);
+                console.log("indexNum", response.items[indexNum]);
+                console.log("videoId", response.items[indexNum].id.videoId);
+                
 
                 let resultHTML = `
-                <iframe class="video_img" src="https://www.youtube.com/embed/${response.items[0].id.videoId}?autoplay=1&amp;enablejsapi=1&amp;mute=0&amp;showinfo=0&amp;rel=0&amp;modestbranding=1&amp;controls=0&amp;loop=0" frameborder="0"
+                <iframe class="video_img" src="https://www.youtube.com/embed/${response.items[indexNum].id.videoId}?autoplay=1&amp;enablejsapi=1&amp;mute=0&amp;showinfo=0&amp;rel=0&amp;modestbranding=1&amp;controls=0&amp;loop=0" frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowfullscreen></iframe>`
 
