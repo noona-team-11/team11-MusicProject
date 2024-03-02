@@ -46,6 +46,8 @@ const $searchData = document.querySelector('.search-data');
 const videoPlay = document.querySelectorAll('.play_btn').forEach(button => {
 	button.addEventListener('click', () => {
 
+		indexNum = 7;
+
 		execute(); // 동영상 버튼 클릭하면 유튜브 동영상 자동 실행
 
 		// const parent = document.querySelector('.video_img');
@@ -60,6 +62,9 @@ const videoPlay = document.querySelectorAll('.play_btn').forEach(button => {
 const slideItemClick = document.querySelectorAll('.slide-item').forEach((item, index) => {
 
 	item.addEventListener('click', function() {
+
+		indexNum = index;
+		console.log(index);
 		    
 		cancel(); // 슬라이드 클릭하면 동영상 중지하고 원래 코드로 복귀
 			
