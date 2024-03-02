@@ -1,9 +1,10 @@
 // 검색 안내 타이틀
-const text = "어떤 음악을 찾고 있나요?";
-const speed = 100;
+let text = "어떤 음악을 찾고 있나요?";
+const speed = 150;
 let i = 0;
 
 const titleTyping = () => {
+
 	if(i < text.length)	{
 		document.querySelector('.search-txt').textContent	+= text.charAt(i);
 		i++;
