@@ -1,5 +1,7 @@
 //let singer = "아이유" //document.getElementById("singer");
-let songTitle = "안치환 사랑하게 되면" //document.getElementById("song-title");
+let indexNum = 0;
+
+
 let videoArea = document.getElementById("video-area");
 // let playBtn = document.querySelector(".play_btn");
 
@@ -10,9 +12,13 @@ let videoArea = document.getElementById("video-area");
 
 function execute() {
 
+  let songTitle = `${songList[indexNum].singer} ${songList[indexNum].title}`
+
+  console.log(songTitle);
+
   const settings = {
     
-    "url": `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=3&type=video&q=${songTitle}&key=${API_KEY}`,
+    "url": `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=10&type=video&videoEmbeddable=true&videoSyndicated=true&q=${songTitle}&key=${API_KEY}`,
     "method": "GET",
     "timeout": 0,
   }

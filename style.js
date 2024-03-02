@@ -61,6 +61,9 @@ const videoPlay = document.querySelectorAll('.play_btn').forEach(button => {
 const slideItemClick = document.querySelectorAll('.slide-item').forEach((item, index) => {
 
 	item.addEventListener('click', function() {
+
+		indexNum = index;
+		console.log(index);
 		    
 		cancel(); // 슬라이드 클릭하면 동영상 중지하고 원래 코드로 복귀
 			
