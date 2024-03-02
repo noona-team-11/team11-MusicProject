@@ -18,12 +18,12 @@ const $searchResult = document.querySelector('.search-result');
 const $searchForm = document.querySelector('.searchForm');
 const $searchInfo = document.querySelector('.search-info');
 const $searchWrap = document.querySelector('.search-wrap');
-const $searchData = document.querySelector('.search-data');
+let $searchData = document.querySelector('.search-data'); //20240302 let 수정
+//let $taskInput = document.querySelector('.search-data'); 20240302 삭제
 
-let $taskInput = document.querySelector('.search-data');
 
-
-$taskInput.addEventListener('keypress', (event) => {
+//20240302 $searchData 수정
+$searchData.addEventListener('keypress', (event) => {
 	if(event.key == 'Enter'){
 		event.preventDefault(); // 폼 제출 방지
 		addTask();//enter 키를 눌렸을 때 실행할 동작
@@ -42,28 +42,26 @@ const addTask = () => {
 	}
 }
 
-// video player
-// const videoPlay = document.querySelectorAll('.play_btn').forEach(button => {
-// 	button.addEventListener('click', () => {
-// 		const parent = document.querySelector('.video_img');
-// 		const sibling  = document.querySelector('.video-play');
-		
-// 		parent.style.display = 'none';
-// 		sibling.classList.add('active');
-// 	});
-// });
-
-//slide item click
-const slideItemClick = document.querySelectorAll('.slide-item').forEach((item, index) => {
-
+//slide list click
+const slideListItems = document.querySelectorAll('.slide-item');
+slideListItems.forEach((item, index) => {
 	item.addEventListener('click', function() {
-		    
-		cancel();
-		console.log(videoArea);
-			
-			const slideImgSrc = this.querySelector('.slide-img').getAttribute('src');
-			const videoImg = document.querySelector('.video_img');
-			videoImg.style.backgroundImage = `url(${slideImgSrc})`;
+		//cancel();
+
+		const slideImgSrc = this.querySelector('.slide-img').getAttribute('src');
+		const videoImg = document.querySelector('.video_img');
+		videoImg.style.backgroundImage = `url(${slideImgSrc})`;
+
+		// 클릭한 슬라이드 아이템의 data-video-url 속성 값 가져오기
+		const videoUrl = this.parentElement.getAttribute('data-video-url');
+		// play_btn의 data-video-url 속성 값 설정
+		videoPlayBtn.forEach(btn => {
+			btn.setAttribute('data-video-url', videoUrl);
+		});
+
+		// video-play의 iframe에 해당 URL을 설정하여 재생
+		const videoIframe = document.querySelector('.video-play');
+		videoIframe.src = videoUrl;
 	});
 });
 
