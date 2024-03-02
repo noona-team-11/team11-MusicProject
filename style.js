@@ -47,8 +47,6 @@ const $searchData = document.querySelector('.search-data');
 const videoPlay = document.querySelectorAll('.play_btn').forEach(button => {
 	button.addEventListener('click', () => {
 
-		indexNum = 7;
-
 		execute(); // 동영상 버튼 클릭하면 유튜브 동영상 자동 실행
 
 		// const parent = document.querySelector('.video_img');
