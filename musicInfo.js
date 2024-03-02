@@ -1,3 +1,5 @@
+import { songList } from '/openApi.js';
+
 const clientId = `71054472ad4f4db3b38f6a60fbb8c6b1`;
 const clientSecret = `8ae11bdacdb04a1b9ed655ccfc794240`;
 let albumList = [];
@@ -7,11 +9,10 @@ let songName = '';
 let songImage = '';
 let keyword = '';
 let spotify_search_one = '';
+let musicHTML = '';
 
-const btn = document.querySelector('.title-small');
-btn.addEventListener('click', async function () {
-  let i = 0;
-  for (i = 0; i < songList.length; i++) {
+export async function render() {
+  for (let i = 0; i < songList.length; i++) {
     keyword = songList[i].title + ' ' + songList[i].singer;
     console.log('재희의 테스트 : ', songList);
     console.log('재희의 테스트 : ', keyword);
@@ -32,28 +33,27 @@ btn.addEventListener('click', async function () {
       },
     });
 
-    const render = () => {
-      songName = spotify_search_one.data.tracks.items[0].name;
-      // artist = spotify_search_one.data.tracks.items[0].artists[0].name;
-      songImage = spotify_search_one.data.tracks.items[0].album.images[0].url;
-      albumList = spotify_search_one.data.tracks.items[0];
-      console.log(spotify_search_one);
+    // songName = spotify_search_one.data.tracks.items[0].name;
+    // artist = spotify_search_one.data.tracks.items[0].artists[0].name;
+    songImage = spotify_search_one.data.tracks.items[0].album.images[0].url;
+    albumList = spotify_search_one.data.tracks.items[0];
+    console.log(spotify_search_one);
 
-      const musicHTML = `
-        <div class="swiper-slide slide-list" data-swiper-autoplay="5000" data-video-idx="1" data-video-type="Youtube">
-                  <a href="#none" class="slide-item">
-                    <img class="slide-img" alt="앨범이미지" src=${songImage}>
-                  </a>
-                </div>
-          `;
-
-      document.querySelector('.swiper-wrapper').innerHTML += musicHTML;
-    };
-
-    // startSpotify();
-    render();
+    musicHTML += `
+      <div class="swiper-slide slide-list" data-swiper-autoplay="5000" data-video-idx="1" data-video-type="Youtube">
+                <a href="#none" class="slide-item">
+                  <img class="slide-img" alt="앨범이미지" src=${songImage}>
+                </a>
+              </div>
+        `;
   }
-});
+  document.querySelector('.swiper-wrapper').innerHTML += musicHTML;
+
+  $searchResult.classList.add('on');
+  $wrap.style.overflowY = 'auto';
+  $searchInfo.style.display = ('none');
+  $searchWrap.classList.add('search-value');
+};
 
 // Step 1: Access Token 받기
 
