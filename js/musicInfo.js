@@ -6,14 +6,7 @@ let artist = '';
 let songName = '';
 let songImage = '';
 let keyword = '';
-keyword = '아이유';
-// keyword = document.getElementById('search-data').value;
-// keyword = document.getElementById('test').value;
-
-const getAlbumByKeyword = () => {
-  keyword = document.getElementById('test').value;
-  console.log('keyword', keyword);
-};
+keyword = '이소라 청혼';
 
 // Step 1: Access Token 받기
 
@@ -41,50 +34,39 @@ const spotify_search_one = await axios.get('https://api.spotify.com/v1/search', 
   params: {
     q: keyword,
 
-    type: 'album',
+    type: 'track',
 
     limit: 10,
   },
 });
 
-console.log(spotify_search_one.data);
-console.log(spotify_search_one.data.albums.items[0].name);
-console.log(spotify_search_one.data.albums.items[0].images[0].url);
-console.log(spotify_search_one.data.albums.items[0].artists[0].name);
-
-/*
- console.log(spotify_search_one.data.albums.items[0].id);
- albumId = spotify_search_one.data.albums.items[0].id;
- // 검색결과를 바탕으로 하나씩 정보 받기
-
-albumId = '4IQ9AV1mEjteHrc8KzMDDT';
-
-const spotify_search_album_by_id = await axios.get(`https://api.spotify.com/v1/albums/${albumId}`, {
-  headers: {
-    Authorization: `Bearer ${accessToken}`,
-  },
-});
-*/
+console.log('필요한 데이터 : ', spotify_search_one);
+console.log('필요한 데이터 : ', spotify_search_one.data.tracks.items[0].name);
+console.log('필요한 데이터 : ', spotify_search_one.data.tracks.items[0].artists[0].name);
+console.log('필요한 데이터 : ', spotify_search_one.data.tracks.items[0].album.images[0].url);
 
 // console.log(' 순수 바닐라 자스 : '.spotify_search_album_by_id);
 // console.log('하이');
 
-songName = spotify_search_one.data.albums.items[0].name;
-artist = spotify_search_one.data.albums.items[0].artists[0].name;
-songImage = spotify_search_one.data.albums.items[0].images[0].url;
-albumList = spotify_search_one.data.albums.items;
+songName = spotify_search_one.data.tracks.items[0].name;
+artist = spotify_search_one.data.tracks.items[0].artists[0].name;
+songImage = spotify_search_one.data.tracks.items[0].album.images[0].url;
+albumList = spotify_search_one.data.tracks.items;
+
+/* 
+       <h1>${albums.artists[0].name}</h1>
+       <h2 class="album-name">${albums.name}</h2>	
+*/
 
 const render = () => {
   const musicHTML = albumList
     .map(
-      (albums) => `
+      (tracks) => `
 
       <div class="swiper-slide slide-list" data-swiper-autoplay="5000" data-video-idx="1" data-video-type="Youtube">
                 <a href="#none" class="slide-item">
-                  <img class="slide-img" alt="" src=${albums.images[0].url}>
-                </a>
-                <h1>${albums.artists[0].name}</h1>
-            <h2 class="album-name">${albums.name}</h2>			
+                  <img class="slide-img" alt="앨범이미지" src=${tracks.album.images[1].url}>
+                </a>		
               </div>
         `
     )
