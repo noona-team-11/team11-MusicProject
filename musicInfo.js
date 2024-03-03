@@ -43,6 +43,8 @@ async function render() {
       },
     });
 
+    console.log(spotify_search_one);
+
     musicHTML += `
       <div class="swiper-slide slide-list" data-swiper-autoplay="5000" data-video-idx="1" data-video-type="Youtube">
         <a href="#none" class="slide-item">
@@ -50,6 +52,7 @@ async function render() {
         </a>
       </div>
     `;
+
   }
 
   document.querySelector('.swiper-wrapper').innerHTML += musicHTML;
@@ -59,19 +62,21 @@ async function render() {
   $searchInfo.style.display = ('none');
   $searchWrap.classList.add('search-value');
 
-  //slide item click
-const slideItemClick = document.querySelectorAll('.slide-list').forEach((item, index) => {
+//slide item click
+const slideItemClick = document.querySelectorAll('.slide-item').forEach((item, index) => {
 	item.addEventListener('click', function() {
         
-		console.log(document.querySelectorAll('.slide-list'));
+		console.log(document.querySelectorAll('.slide-item'));
 		indexNum = index;
 		console.log("리스트클릭", index);
 		    
 		cancel(); // 슬라이드 클릭하면 동영상 중지하고 원래 코드로 복귀
-			
+
 			const slideImgSrc = this.querySelector('.slide-img').getAttribute('src');
 			const videoImg = document.querySelector('.video_img');
 			videoImg.style.backgroundImage = `url(${slideImgSrc})`;
+			
+
 	});
 });
 

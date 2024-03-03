@@ -25,6 +25,7 @@ const addTask = async () => {
             const response = await fetch(`https://port-0-openai-node-dc9c2nlt8u9zyk.sel5.cloudtype.app/${message}`);
             songList = await response.json();
             console.log(songList);
+            
 
             const hasUndefinedData = songList.some(item => item.title === undefined || item.singer === undefined);
 

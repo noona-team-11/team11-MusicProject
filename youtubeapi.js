@@ -1,5 +1,6 @@
 //let singer = "아이유" //document.getElementById("singer");
 let indexNum = 0;
+let singHTML = '';
 
 
 let videoArea = document.getElementById("video-area");
@@ -57,7 +58,8 @@ function execute() {
                   <div class="video-main-text">BTS</div>
                   <div class="video-sub-text">Standing Next to You</div>
                 </div>
-              </div>`
+              </div>`;
 
               return videoArea.innerHTML = resultHTML;
+             
   }
