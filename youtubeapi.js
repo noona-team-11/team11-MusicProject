@@ -1,7 +1,5 @@
-//let singer = "아이유" //document.getElementById("singer");
 let indexNum = 0;
 let singHTML = '';
-
 
 let videoArea = document.getElementById("video-area");
 // let playBtn = document.querySelector(".play_btn");
@@ -9,7 +7,8 @@ let videoArea = document.getElementById("video-area");
 // 유튜브 API KEY 변경하면서 사용
 // const API_KEY = "AIzaSyDSDhqWaf8SlzZyCkBF4Wv0ZEFslmQj8wY" // kgmblue9@gmail.com #1
 // const API_KEY = "AIzaSyACluLZVihJAQrSJeQ4aZUIG1hRzLO7sVk" // kgmblue9@gmail.com #2
- const API_KEY = "AIzaSyDz-rvZIferhXPI8Hzktj9cTRl6Xbi6lAg" // kgmlovee9@gmail.com
+const API_KEY = "AIzaSyDz-rvZIferhXPI8Hzktj9cTRl6Xbi6lAg" // kgmlovee9@gmail.com
+
 
 function execute() {
 
@@ -18,7 +17,6 @@ function execute() {
   console.log("유튜브에 넘겨 주는 검색 조건: ",songTitle);
 
   const settings = {
-    
     "url": `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=10&type=video&videoEmbeddable=true&videoSyndicated=true&q=${songTitle}&key=${API_KEY}`,
     "method": "GET",
     "timeout": 0,
@@ -46,9 +44,7 @@ function execute() {
 
   function cancel() {
     
-    let resultHTML = ``
-
-    resultHTML = `
+    let resultHTML = `
               <div class="video_img" style="background-image: url(https://hybecorp.com/archive/SYN8Dezw3cxzmcyKoqFBHka7IW9KaX8TfpaEdUbw6SopJMSser2UbzWeVvJvXNfxDKXr7e2IVirKcMDKt3AfaNUhDi3M4l5VeTiQsSThhfetQ6F3q4y9kMxU8A240GPO.jpg);">
                 <a href="#none" class="play_btn"></a>
                 <iframe class="video-play" src="https://www.youtube.com/embed/UNo0TG9LwwI?autoplay=0&amp;enablejsapi=1&amp;mute=1&amp;showinfo=0&amp;rel=0&amp;modestbranding=1&amp;controls=0&amp;loop=0" frameborder="0"
