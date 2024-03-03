@@ -41,14 +41,6 @@ function updateVideoBackgroundImage() {
         item.addEventListener('click', function() {
             const slideImgSrc = this.querySelector('.slide-img').getAttribute('src');
             videoImg.style.backgroundImage = `url(${slideImgSrc})`;
-
-            // play_btn 버튼 보이기
-            playBtn.style.display = 'block';
-			
-            videoPlay.style.display = 'none'; // 동영상 숨기기
-
-            // .search-result에 on 클래스 추가하여 opacity를 1로 설정
-            document.querySelector('.search-result').classList.add('on');
         });
     });
 }
