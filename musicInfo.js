@@ -85,4 +85,3 @@ const slideItemClick = document.querySelectorAll('.slide-list').forEach((item, i
 });
 
 }
-

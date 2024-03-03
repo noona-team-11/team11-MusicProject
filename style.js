@@ -30,7 +30,7 @@ const videoPlay = document.querySelectorAll('.play_btn').forEach(button => {
 	});
 });
 
-// 썸네일 클릭한 이후 video_img 이미지 변경 20240303 Eunju 추가
+// 썸네일 클릭한 이후 video_img 이미지 변경
 function updateVideoBackgroundImage() {
     const videoImg = document.querySelector('.video_img');
     const playBtn = document.querySelector('.play_btn'); // play_btn 요소 선택
@@ -41,19 +41,11 @@ function updateVideoBackgroundImage() {
         item.addEventListener('click', function() {
             const slideImgSrc = this.querySelector('.slide-img').getAttribute('src');
             videoImg.style.backgroundImage = `url(${slideImgSrc})`;
-
-            // play_btn 버튼 보이기
-            playBtn.style.display = 'block';
-			
-            videoPlay.style.display = 'none'; // 동영상 숨기기
-
-            // .search-result에 on 클래스 추가하여 opacity를 1로 설정
-            document.querySelector('.search-result').classList.add('on');
         });
     });
 }
 
-updateVideoBackgroundImage(); // 이미지 업데이트 호출 추가 20240303 Eunju 추가
+updateVideoBackgroundImage(); // 이미지 업데이트 호출
 
 
 //swiper option
@@ -111,4 +103,3 @@ function updateNavButtons(swiper) {
 		$nextButton.style.display = 'block';
 	}
 }
-
