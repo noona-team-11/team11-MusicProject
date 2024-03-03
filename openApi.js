@@ -1,8 +1,7 @@
-import { render } from '/musicInfo.js';
 
 let retryCount = 0;
 let $taskInput = document.querySelector('.search-data');
-export let songList = ""
+let songList = ""
 
 $taskInput.addEventListener('keypress', (event) => {
 	if(event.key == 'Enter'){
@@ -40,6 +39,7 @@ const addTask = async () => {
                     console.log(`title[${i}]`, songList[i].title);
                     console.log(`singer[${i}]`, songList[i].singer);
                 }
+                await startSpotify();
                 render();
             }
             } catch (error) {
