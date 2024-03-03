@@ -5,9 +5,9 @@ let videoArea = document.getElementById("video-area");
 // let playBtn = document.querySelector(".play_btn");
 
 // 유튜브 API KEY 변경하면서 사용
-// const API_KEY = "AIzaSyDSDhqWaf8SlzZyCkBF4Wv0ZEFslmQj8wY" // kgmblue9@gmail.com #1
+ const API_KEY = "AIzaSyDSDhqWaf8SlzZyCkBF4Wv0ZEFslmQj8wY" // kgmblue9@gmail.com #1
 // const API_KEY = "AIzaSyACluLZVihJAQrSJeQ4aZUIG1hRzLO7sVk" // kgmblue9@gmail.com #2
-const API_KEY = "AIzaSyDz-rvZIferhXPI8Hzktj9cTRl6Xbi6lAg" // kgmlovee9@gmail.com
+// const API_KEY = "AIzaSyDz-rvZIferhXPI8Hzktj9cTRl6Xbi6lAg" // kgmlovee9@gmail.com
 
 
 function execute() {
@@ -32,7 +32,7 @@ function execute() {
                 
 
                 let resultHTML = `
-                <iframe class="video_img" src="https://www.youtube.com/embed/${response.items[indexNum].id.videoId}?autoplay=1&amp;enablejsapi=1&amp;mute=0&amp;showinfo=0&amp;rel=0&amp;modestbranding=1&amp;controls=0&amp;loop=0" frameborder="0"
+                <iframe class="video_img" src="https://www.youtube.com/embed/${response.items[indexNum].id.videoId}?autoplay=0&amp;enablejsapi=1&amp;mute=0&amp;showinfo=0&amp;rel=0&amp;modestbranding=1&amp;controls=0&amp;loop=0" frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowfullscreen></iframe>`
 

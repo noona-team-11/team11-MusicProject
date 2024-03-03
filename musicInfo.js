@@ -63,10 +63,10 @@ const startSpotify = async () => {
   $searchWrap.classList.add('search-value');
 
 //slide item click
-const slideItemClick = document.querySelectorAll('.slide-item').forEach((item, index) => {
+const slideItemClick = document.querySelectorAll('.slide-list').forEach((item, index) => {
 	item.addEventListener('click', function() {
         
-		console.log(document.querySelectorAll('.slide-item'));
+		console.log(document.querySelectorAll('.slide-list'));
 		indexNum = index;
 		console.log("리스트클릭", index);
 		    
@@ -75,7 +75,11 @@ const slideItemClick = document.querySelectorAll('.slide-item').forEach((item, i
 			const slideImgSrc = this.querySelector('.slide-img').getAttribute('src');
 			const videoImg = document.querySelector('.video_img');
 			videoImg.style.backgroundImage = `url(${slideImgSrc})`;
+
+    console.log(this.querySelector('.play_btn'))
+    execute()
 			
+
 
 	});
 });
