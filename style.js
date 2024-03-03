@@ -30,7 +30,7 @@ const videoPlay = document.querySelectorAll('.play_btn').forEach(button => {
 	});
 });
 
-// 썸네일 클릭한 이후 video_img 이미지 변경 20240303 Eunju 추가
+// 썸네일 클릭한 이후 video_img 이미지 변경
 function updateVideoBackgroundImage() {
     const videoImg = document.querySelector('.video_img');
     const playBtn = document.querySelector('.play_btn'); // play_btn 요소 선택
@@ -45,7 +45,7 @@ function updateVideoBackgroundImage() {
     });
 }
 
-updateVideoBackgroundImage(); // 이미지 업데이트 호출 추가 20240303 Eunju 추가
+updateVideoBackgroundImage(); // 이미지 업데이트 호출
 
 
 //swiper option
@@ -103,4 +103,3 @@ function updateNavButtons(swiper) {
 		$nextButton.style.display = 'block';
 	}
 }
-

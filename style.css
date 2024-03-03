@@ -161,7 +161,7 @@ body {
   border-radius: 1rem;
 }
 .slide-img {
-  height:18rem
+  height:19rem;
 }
 .slide-img:hover {
   transform: scale(1.1);
