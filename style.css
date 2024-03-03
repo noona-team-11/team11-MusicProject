@@ -308,7 +308,7 @@ img {
 /* phone*/
 @media (max-width:600px) {
   .slide-img {
-    height:25rem;
+    height:23rem
   }
 	.video-wrap {
 		height:100%;
