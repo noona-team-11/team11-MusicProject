@@ -50,17 +50,17 @@ const startSpotify = async () => {
     </a>
     </div>
     `;
+
   }
   
   document.querySelector('.swiper-wrapper').innerHTML += musicHTML;
   
-  updateVideoBackgroundImage();
+  updateVideoBackgroundImage(); //240303 Eunju추가
   
   $searchResult.classList.add('on');
   $wrap.style.overflowY = 'auto';
   $searchInfo.style.display = ('none');
   $searchWrap.classList.add('search-value');
-}
 
 //slide item click
 const slideItemClick = document.querySelectorAll('.slide-list').forEach((item, index) => {
@@ -79,7 +79,7 @@ const slideItemClick = document.querySelectorAll('.slide-list').forEach((item, i
     console.log(this.querySelector('.play_btn'))
     execute()
 			
-
-
 	});
 });
+
+}
