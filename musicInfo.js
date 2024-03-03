@@ -79,6 +79,8 @@ const slideItemClick = document.querySelectorAll('.slide-list').forEach((item, i
     console.log(this.querySelector('.play_btn'))
     execute()
 			
+
+
 	});
 });
 
