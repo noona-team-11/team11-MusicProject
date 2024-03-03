@@ -54,7 +54,7 @@ const startSpotify = async () => {
   
   document.querySelector('.swiper-wrapper').innerHTML += musicHTML;
   
-  updateVideoBackgroundImage(); //240303 Eunju추가
+  updateVideoBackgroundImage();
   
   $searchResult.classList.add('on');
   $wrap.style.overflowY = 'auto';
@@ -62,3 +62,24 @@ const startSpotify = async () => {
   $searchWrap.classList.add('search-value');
 }
 
+//slide item click
+const slideItemClick = document.querySelectorAll('.slide-list').forEach((item, index) => {
+	item.addEventListener('click', function() {
+        
+		console.log(document.querySelectorAll('.slide-list'));
+		indexNum = index;
+		console.log("리스트클릭", index);
+		    
+		cancel(); // 슬라이드 클릭하면 동영상 중지하고 원래 코드로 복귀
+
+			const slideImgSrc = this.querySelector('.slide-img').getAttribute('src');
+			const videoImg = document.querySelector('.video_img');
+			videoImg.style.backgroundImage = `url(${slideImgSrc})`;
+
+    console.log(this.querySelector('.play_btn'))
+    execute()
+			
+
+
+	});
+});
