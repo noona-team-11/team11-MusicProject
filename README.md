@@ -1,3 +1,4 @@
+
 # 코딩알려주는누나 javascript 1기 팀 11조
 
 <br/>
@@ -70,3 +71,4 @@ https://team11-music-site.netlify.app/
 ## 총평 💯
 
 ![스크린샷 2024-03-03 오후 7 08 31](https://github.com/jay0425/jaehee-times/assets/121213522/9b08fc5f-acca-4c58-a868-c2bae1c4c7cd)
+
