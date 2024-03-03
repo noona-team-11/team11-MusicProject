@@ -17,7 +17,7 @@ function execute() {
   console.log("유튜브에 넘겨 주는 검색 조건: ",songTitle);
 
   const settings = {
-    "url": `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=10&type=video&videoEmbeddable=true&videoSyndicated=true&q=${songTitle}&key=${API_KEY}`,
+    "url": `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=10&type=video&q=${songTitle}&key=${API_KEY}`,
     "method": "GET",
     "timeout": 0,
   }
