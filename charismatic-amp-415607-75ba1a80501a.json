@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "charismatic-amp-415607",
+  "private_key_id": "75ba1a80501afcadd99fe7535250df7b24393110",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCQie1j8oFFwNBD\nUFZi9xq/hTZV5tOSsh6U9BIrAFK8sRgylhPf2InKTQsmdiypedbG0AWIur6703bY\nGf3tm+c1jX8wmhZWYbkWH20tQasgwu3IjY0eQ00WSruH90qgW3o/Nm44ezcuznjd\nN9I7vUyZeNJdKErsDzOfEV9SMBUKJ4T/dZrGjbc2DI6DTc0Y/jb6pz7ApEts8DY1\nzva6xHVNMOPKVleVj78Zj4DkCuvRe70z+m1mCsEMkiUsp4bUeVXvprYSnjEgXvlo\nSuvtjWqVghwY3z6e1H7sBkOV5b1c7mFoV6fSOVoCS6HrznAo8drfxBL+LnA9YlK1\nd3A1O8ZdAgMBAAECggEAJkqD+2B5YtNL2SllWV6BVY+i72rxTgGmHGv0jDPPt3Fr\nKaucpEanalKyy4OvHU7L2Wuuq6Rdd0D0URfBr7sHq6ZKtcN8e3H0KKo2sDCfd1Rs\nzh7B7eyCdY9i0whuWsEhR7HRzWDHI71LQ7/QEEd8DYR2pntQLe1xDYj6qblXOZMM\nnw4PvHbu/ogIOIhpQEhi+8y8ZcR4nAKvU5LJbmVHrkxgUdSuLJUj7Hv/YbLjHf50\ndT/Dg1HHZ8zPlgRpEBO2sqccJCReqQSgEp78UjuS/vmUNooJ1Ob9AZFNpyUjHwpZ\np/23uTIuuw9f5kebjSx6SjfmthRJfCGXcd81y00iuQKBgQDJglU0N4lAl1kDuhN5\nUF/vKf7OWE+HRVH6XLWxBszlX6O+PjqacZYaxwpItTn7g8PTKGo0HbPv4qLSe0C7\nOpkd6eZlcV1neYvbfskxWA5RsTwW3Mx99bmIsLlCMUt/a/1XRMqHS4MQYPkXM2Zb\nc5KklB31MSMg1xpcMr0im6rIrwKBgQC3n8RSd+rJK2Gq6+X9bXiS87mwCfOIfXGJ\nhSPQlP4Mf6R2wkQjvvurUSKyRlDDs8JRQ3Fs36G1zben0Ueq8uTOzD/JhOfsZkhD\nZ5bM0fOubQI8UdU7S1hy/ownhDu5PCXng1BDuTMl5lsynDjAnzH7mcszYz/8M/Sw\nt2qJ1vrMswKBgDNd195hsckXS4eZrVElXe8XY26yMEOpNgZ+D4q60ww9Xv4l2sZ3\n4e2dg0+ZcthcdFSlXr0+PRoPSbYh2RRhEZsAfsypI0g3QaGIJj0/1xaX+VtSmYYa\nV1sywWbQLhCjNIdEb+QhKZ3JOnXhklwJj/4IC8Lu7ad3ba7G+FOUHurdAoGAW7tw\n9FH79Ou7KwwWJXje12ryxMLz6qfgZHci4TzNfaj2nG2IZOMwDvHFh5IhHuNanAY5\nT86Ylp5itW+Tgg89xyG6bA39XtfqGeJSL5hjSCwlBcVL5QdK9Ie9tLAWtf8aYIH1\nQx/uMWzW+n2YzIG7EppOLSnT+UZrYyz+CEZhnIkCgYEAhW5naEgX8RU7ZPpkfo9b\n+3g8j59nPp8DxLauDq8pmZKhqRuJU7yO3ClqDeYZGU/O/BjCmnCc8nQKQ6XoZ3Ie\nJQ2Pnilc1JyIl/ErrQkXYxPE3kPhW/qfQFw6MGenBFAPCyc8tg3UdH2n+8Fn/znr\nZjWBynNSCKZ6AxBpeLA543E=\n-----END PRIVATE KEY-----\n",
+  "client_email": "kgm-play@charismatic-amp-415607.iam.gserviceaccount.com",
+  "client_id": "112252166184035588204",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/kgm-play%40charismatic-amp-415607.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
