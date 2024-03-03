@@ -17,22 +17,22 @@ const startSpotify = async () => {
           'Content-Type': 'application/x-www-form-urlencoded',
         },
       }
-    );
+      );
+      
+      accessToken = tokenResponse.data.access_token;
+    } catch (error) {
+      console.error('Access Token 얻기 오류:', error);
+    }
+  };
   
-    accessToken = tokenResponse.data.access_token;
-  } catch (error) {
-    console.error('Access Token 얻기 오류:', error);
-  }
-};
-
-// startSpotify 함수를 호출하여 액세스 토큰을 얻습니다.
-startSpotify();
-
-async function render() {
-  for (let i = 0; i < songList.length; i++) {
-    keyword = songList[i].title + ' ' + songList[i].singer;
-
-    spotify_search_one = await axios.get('https://api.spotify.com/v1/search', {
+  // startSpotify 함수를 호출하여 액세스 토큰을 얻습니다.
+  startSpotify();
+  
+  async function render() {
+    for (let i = 0; i < songList.length; i++) {
+      keyword = songList[i].title + ' ' + songList[i].singer;
+      
+      spotify_search_one = await axios.get('https://api.spotify.com/v1/search', {
       headers: {
         Authorization: `Bearer ${accessToken}`,
       },
@@ -42,20 +42,23 @@ async function render() {
         limit: 1,
       },
     });
-
+    
     musicHTML += `
-      <div class="swiper-slide slide-list" data-swiper-autoplay="5000" data-video-idx="1" data-video-type="Youtube">
-        <a href="#none" class="slide-item">
-          <img class="slide-img" alt="앨범이미지" src=${spotify_search_one.data.tracks.items[0].album.images[0].url}>
-        </a>
-      </div>
+    <div class="swiper-slide slide-list" data-swiper-autoplay="5000" data-video-idx="1" data-video-type="Youtube">
+    <a href="#none" class="slide-item">
+    <img class="slide-img" alt="앨범이미지" src=${spotify_search_one.data.tracks.items[0].album.images[0].url}>
+    </a>
+    </div>
     `;
   }
-
+  
   document.querySelector('.swiper-wrapper').innerHTML += musicHTML;
-
+  
+  updateVideoBackgroundImage(); //240303 Eunju추가
+  
   $searchResult.classList.add('on');
   $wrap.style.overflowY = 'auto';
   $searchInfo.style.display = ('none');
   $searchWrap.classList.add('search-value');
 }
+
