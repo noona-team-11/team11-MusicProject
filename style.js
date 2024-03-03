@@ -4,7 +4,7 @@ const speed = 150;
 let i = 0;
 
 const titleTyping = () => {
-
+	
 	if(i < text.length)	{
 		document.querySelector('.search-txt').textContent	+= text.charAt(i);
 		i++;
@@ -21,61 +21,46 @@ const $searchInfo = document.querySelector('.search-info');
 const $searchWrap = document.querySelector('.search-wrap');
 const $searchData = document.querySelector('.search-data');
 
-// let $taskInput = document.querySelector('.search-data');
-
-
-// $taskInput.addEventListener('keypress', (event) => {
-// 	if(event.key == 'Enter'){
-// 		event.preventDefault(); // 폼 제출 방지
-// 		addTask();//enter 키를 눌렸을 때 실행할 동작
-// 	}
-// })
-
-// const addTask = () => {
-// 	if($searchData.value === '') {
-// 		alert('음악을 입력해 주세요.')
-// 		return;
-// 	} else {
-// 		$searchResult.classList.add('on');
-// 		$wrap.style.overflowY = 'auto';
-// 		$searchInfo.style.display = ('none');
-// 		$searchWrap.classList.add('search-value');
-// 	}
-// }
-
 // video player
 const videoPlay = document.querySelectorAll('.play_btn').forEach(button => {
 	button.addEventListener('click', () => {
 
 		execute(); // 동영상 버튼 클릭하면 유튜브 동영상 자동 실행
-
-		// const parent = document.querySelector('.video_img');
-		// const sibling  = document.querySelector('.video-play');
-		
-		// parent.style.display = 'none';
-		// sibling.classList.add('active');
+		button.style.display = 'none'; // play_btn 버튼 숨기기
 	});
 });
 
-//slide item click
-const slideItemClick = document.querySelectorAll('.slide-item').forEach((item, index) => {
-	item.addEventListener('click', function() {
+// 썸네일 클릭한 이후 video_img 이미지 변경 20240303 Eunju 추가
+function updateVideoBackgroundImage() {
+    const videoImg = document.querySelector('.video_img');
+    const playBtn = document.querySelector('.play_btn'); // play_btn 요소 선택
+    const videoPlay = document.querySelector('.video-play'); // video-play 요소 선택
 
-		indexNum = index;
-		console.log("리스트클릭", index);
-		    
-		cancel(); // 슬라이드 클릭하면 동영상 중지하고 원래 코드로 복귀
+    const slideItems = document.querySelectorAll('.slide-item');
+    slideItems.forEach(item => {
+        item.addEventListener('click', function() {
+            const slideImgSrc = this.querySelector('.slide-img').getAttribute('src');
+            videoImg.style.backgroundImage = `url(${slideImgSrc})`;
+
+            // play_btn 버튼 보이기
+            playBtn.style.display = 'block';
 			
-			const slideImgSrc = this.querySelector('.slide-img').getAttribute('src');
-			const videoImg = document.querySelector('.video_img');
-			videoImg.style.backgroundImage = `url(${slideImgSrc})`;
-	});
-});
+            videoPlay.style.display = 'none'; // 동영상 숨기기
+
+            // .search-result에 on 클래스 추가하여 opacity를 1로 설정
+            document.querySelector('.search-result').classList.add('on');
+        });
+    });
+}
+
+updateVideoBackgroundImage(); // 이미지 업데이트 호출 추가 20240303 Eunju 추가
+
 
 //swiper option
 const musicSwiper = new Swiper(".swiper", {
 	freeMode: true,
 	keyboard: true,
+	aspectRatio: 1,
 	navigation: {
 		nextEl: ".swiper-button-next",
 		prevEl: ".swiper-button-prev",
@@ -126,3 +111,4 @@ function updateNavButtons(swiper) {
 		$nextButton.style.display = 'block';
 	}
 }
+
